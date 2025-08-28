@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 
@@ -15,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <body className="min-h-screen">
-        <div>header</div>
+        <Header />
         <div className="container xl:max-w-screen-xl">{children}</div>
       </body>
     </html>
