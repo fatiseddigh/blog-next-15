@@ -12,8 +12,8 @@ function NotFound() {
                 relative overflow-hidden backdrop-blur-md"
     >
       {/* floating background shapes */}
-      {/* <div className="absolute top-1 left-10 w-40  bg-primary-200/40 rounded-full blur-3xl animate-pulse"></div> */}
-      {/* <div className="absolute bottom-16 right-20 w-56 h-56 bg-secondary-200/40 rounded-full blur-3xl animate-pulse delay-300"></div> */}
+      <div className="absolute top-1 left-10 w-40  bg-primary-200/40 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-16 right-20 w-56 h-56 bg-secondary-200/40 rounded-full blur-3xl animate-pulse delay-300"></div>
 
       {/* Glass Card */}
       <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl p-5 text-center max-w-lg">
@@ -24,7 +24,7 @@ function NotFound() {
         {/* funny character animation */}
         <div className="mb-6 flex justify-center">
           <Image
-            src="/img/ro.gif" // مسیر گیف یا انیمیشن
+            src="/img/ro.gif"
             alt="Lost character"
             width={180}
             height={180}
