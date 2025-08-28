@@ -42,6 +42,9 @@ module.exports = {
         warning: withOpacity("--color-warning"),
         error: withOpacity("--color-error"),
       },
+      fontFamily: {
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
+      },
     },
   },
   plugins: [],
