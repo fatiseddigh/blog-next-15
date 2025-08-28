@@ -45,6 +45,10 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
       },
+      container: {
+        center: true,
+        padding: "1rem",
+      },
     },
   },
   plugins: [],

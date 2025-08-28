@@ -157,14 +157,14 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   outline: none;
-  padding: 0;
-  margin: 0;
+  /* padding: 0;
+  margin: 0; */
 }
 
 html,
 body {
-  padding: 0;
-  margin: 0;
+  /* padding: 0; */
+  /* margin: 0; */
   font-family: var(--vazir-font);
   min-height: 100vh;
   user-select: none;
