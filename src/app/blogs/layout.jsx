@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import CategoryList from "./_components/CategoryList";
+import Spinner from "@/ui/Spinner";
 
 function Layout({ children }) {
   return (
@@ -47,7 +49,9 @@ function Layout({ children }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Categories Sidebar */}
           <aside className="lg:col-span-3 text-secondary-500 space-y-4">
-            <CategoryList />
+            <Suspense fallback={<Spinner />}>
+              <CategoryList />
+            </Suspense>
           </aside>
 
           {/* Blog Posts */}
