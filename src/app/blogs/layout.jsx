@@ -45,7 +45,7 @@ function Layout({ children }) {
       </section>
 
       {/* Blog Content */}
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="w-full min-h-screen px-4 sm:px-6 lg:px-8 ">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Categories Sidebar */}
           <aside className="lg:col-span-3 text-secondary-500 space-y-4">
