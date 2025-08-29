@@ -1,9 +1,12 @@
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+export const metadata = {
+  title: "Home",
+};
 export default function Home() {
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20
+      className="relative w-screen flex flex-col items-center justify-center px-6 py-20
                 bg-primary-50/30 backdrop-blur-md overflow-hidden"
     >
       {/* Floating decorative shapes */}

@@ -1,3 +1,6 @@
+export const metadata = {
+  title: "Blog",
+};
 function BlogPage() {
   return <div>Blog List</div>;
 }
