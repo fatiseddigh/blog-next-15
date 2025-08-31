@@ -8,12 +8,12 @@ export async function generateMetadata({ params }) {
   };
 }
 async function SinglePost({ params }) {
-  // await new Promise((res) => setTimeout(() => res(), 3000));
+  await new Promise((res) => setTimeout(() => res(), 500));
   // const post = await getPostBySlug(params.postSlug);
   const { postSlug } = await params;
   const post = await getPostBySlug(postSlug);
   if (!post) notFound();
-  console.log(post);
+
   return (
     <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
       <div className="max-w-5xl mx-auto">
