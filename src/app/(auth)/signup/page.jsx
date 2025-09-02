@@ -6,9 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import SpinnerMini from "@/ui/SpinnerMini";
 import Button from "@/components/ui/Button";
-import { signupApi } from "@/services/authservice";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 const schema = yup
   .object({
@@ -31,15 +29,10 @@ function Signup() {
     resolver: yupResolver(schema),
     mode: "onTouched",
   });
-  const router = useRouter();
+  const { signup } = useAuth();
+
   const onSubmit = async (values) => {
-    try {
-      const { user, message } = await signupApi(values);
-      toast.success(message);
-      router.push("/profile");
-    } catch (error) {
-      toast.error(error?.response?.data?.message);
-    }
+    await signup(values);
   };
 
   return (

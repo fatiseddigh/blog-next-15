@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import SpinnerMini from "@/ui/SpinnerMini";
 import Button from "@/components/ui/Button";
-import { singinApi } from "@/services/authservice";
+import { useAuth } from "@/context/AuthContext";
 
 const schema = yup
   .object({
@@ -26,12 +26,10 @@ function Signin() {
     mode: "onTouched",
   });
 
+  const { signin } = useAuth();
+
   const onSubmit = async (values) => {
-    try {
-      const { user, message } = await singinApi(values);
-    } catch (error) {
-      console.log(error?.response?.data?.message);
-    }
+    await signin(values);
   };
 
   return (

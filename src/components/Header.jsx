@@ -1,3 +1,5 @@
+"use client";
+import { useAuth } from "@/context/AuthContext";
 import NavLink from "./NavLink";
 
 const navLinks = [
@@ -6,13 +8,15 @@ const navLinks = [
 ];
 
 function Header() {
-  const user = false;
+  const { user, isLoading } = useAuth();
 
   return (
     <header
-      className="sticky top-0 z-50 backdrop-blur-lg
+      className={`sticky top-0 z-50 backdrop-blur-lg
                        bg-gradient-to-r from-primary-50/80 to-primary-100/80
-                       border-b-2 border-secondary-300 shadow-lg transition-all duration-300"
+                       border-b-2 border-secondary-300 shadow-lg transition-all duration-300  ${
+                         isLoading ? "blur-sm opacity-70" : "opacity-100 blur-0"
+                       }`}
     >
       <nav className="container xl:max-w-screen-xl mx-auto flex flex-row items-center justify-between py-4 px-6 md:px-0">
         {/* Logo */}

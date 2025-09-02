@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import AuthProvider from "@/context/AuthContext";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
@@ -20,9 +21,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <body className="min-h-screen">
-        <Toaster />
-        <Header />
-        <div className="container">{children}</div>
+        <AuthProvider>
+          <Toaster />
+          <Header />
+          <div className="container">{children}</div>
+        </AuthProvider>
       </body>
     </html>
   );
