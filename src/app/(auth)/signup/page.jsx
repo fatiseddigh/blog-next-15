@@ -7,6 +7,8 @@ import Link from "next/link";
 import SpinnerMini from "@/ui/SpinnerMini";
 import Button from "@/components/ui/Button";
 import { signupApi } from "@/services/authservice";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const schema = yup
   .object({
@@ -29,12 +31,14 @@ function Signup() {
     resolver: yupResolver(schema),
     mode: "onTouched",
   });
-
+  const router = useRouter();
   const onSubmit = async (values) => {
     try {
       const { user, message } = await signupApi(values);
+      toast.success(message);
+      router.push("/profile");
     } catch (error) {
-      console.log(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message);
     }
   };
 
