@@ -51,7 +51,7 @@ function Signin() {
           isRequired
           errors={errors}
           className="w-full px-4 py-3 bg-white/10 border border-white/20 
-                 text-white placeholder-gray-300 rounded-xl 
+                 text-gray-700 placeholder-gray-300 rounded-xl 
                  focus:ring-2 focus:ring-primary-400 focus:border-transparent"
         />
 
@@ -63,7 +63,7 @@ function Signin() {
           isRequired
           errors={errors}
           className="w-full px-4 py-3 bg-white/10 border border-white/20 
-                 text-white placeholder-gray-300 rounded-xl 
+                 text-gray-700 placeholder-gray-300 rounded-xl 
                  focus:ring-2 focus:ring-secondary-500 focus:border-transparent"
         />
 
