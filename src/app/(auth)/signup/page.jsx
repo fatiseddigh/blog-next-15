@@ -12,11 +12,14 @@ const schema = yup
   .object({
     name: yup
       .string()
-      .min(5, "نام و نام خانوادگی نامعتبر است")
-      .max(30)
-      .required("نام و نام خانوادگی الزامی است"),
-    email: yup.string().email("ایمیل نامعتبر است").required("ایمیل الزامی است"),
-    password: yup.string().required("رمز عبور الزامی است"),
+      .min(5, "Full name must be at least 5 characters")
+      .max(30, "Full name must be at most 30 characters")
+      .required("Full name is required"),
+    email: yup
+      .string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    password: yup.string().required("Password is required"),
   })
   .required();
 
@@ -36,46 +39,79 @@ function Signup() {
   };
 
   return (
-    <div>
-      <h1 className="text-xl font-bold text-secondary-500 text-center mb-6">
+    <div className="w-full">
+      {/* Title */}
+      <h1
+        className="text-3xl font-extrabold text-center mb-8 
+                     bg-gradient-to-r from-primary-400 to-secondary-500 
+                     bg-clip-text text-transparent drop-shadow-md"
+      >
         Register
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
+
+      {/* Form */}
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <RHFTextField
           label="Full name"
           name="name"
           register={register}
           isRequired
           errors={errors}
+          className="w-full px-4 py-3 bg-white/10 border border-white/20 
+                     text-white placeholder-gray-300 rounded-xl 
+                     focus:ring-2 focus:ring-primary-400 focus:border-transparent"
         />
+
         <RHFTextField
-          label="email"
+          label="Email"
           name="email"
           register={register}
           isRequired
           errors={errors}
+          className="w-full px-4 py-3 bg-white/10 border border-white/20 
+                     text-white placeholder-gray-300 rounded-xl 
+                     focus:ring-2 focus:ring-primary-400 focus:border-transparent"
         />
+
         <RHFTextField
-          label="password"
+          label="Password"
           name="password"
-          register={register}
           type="password"
+          register={register}
           isRequired
           errors={errors}
+          className="w-full px-4 py-3 bg-white/10 border border-white/20 
+                     text-white placeholder-gray-300 rounded-xl 
+                     focus:ring-2 focus:ring-secondary-500 focus:border-transparent"
         />
-        <div>
-          {isLoading ? (
+
+        {/* Button */}
+        {isLoading ? (
+          <div className="flex justify-center">
             <SpinnerMini />
-          ) : (
-            <Button type="submit" variant="primary" className="w-full">
-              Confirm
-            </Button>
-          )}
-        </div>
+          </div>
+        ) : (
+          <Button
+            type="submit"
+            className="w-full py-3 rounded-xl bg-gradient-to-r 
+                       from-primary-600 via-primary-400 to-secondary-500 
+                       text-white font-medium shadow-md 
+                       hover:scale-[1.02] transition-transform"
+          >
+            Confirm
+          </Button>
+        )}
       </form>
-      <Link href="/signin" className="text-secondary-500 mt-6 text-center">
-        Login
-      </Link>
+
+      {/* Login Link */}
+      <div className="mt-8 text-center">
+        <Link
+          href="/signin"
+          className="text-sm text-secondary-500 hover:underline transition-colors"
+        >
+          Already have an account? Login
+        </Link>
+      </div>
     </div>
   );
 }

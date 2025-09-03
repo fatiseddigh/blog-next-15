@@ -11,8 +11,11 @@ import { useAuth } from "@/context/AuthContext";
 
 const schema = yup
   .object({
-    email: yup.string().email("ایمیل نامعتبر است").required("ایمیل الزامی است"),
-    password: yup.string().required("رمز عبور الزامی است"),
+    email: yup
+      .string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    password: yup.string().required("Password is required"),
   })
   .required();
 
