@@ -1,11 +1,14 @@
-import Spinner from "@/ui/Spinner";
-import { Suspense } from "react";
 import PostList from "../_components/PostList";
-
+import { cookies } from "next/headers";
+import setCookieOnReq from "@/utile/setCookieOnReq";
+import { getPosts } from "@/services/postServices";
 export const metadata = {
   title: "Blog",
 };
 async function BlogPage() {
+  const cookieStore = cookies();
+  const options = setCookieOnReq(cookieStore);
+  const posts = await getPosts(options);
   return (
     <div>
       {/* <p className="mb-4">
@@ -14,9 +17,9 @@ async function BlogPage() {
         optio veritatis beatae, consequatur facere earum deserunt tempore
         voluptas sed aliquid cum ipsam?
       </p> */}
-      <Suspense fallback={<Spinner />}>
-        <PostList />
-      </Suspense>
+      {/* <Suspense fallback={<Spinner />}> */}
+      <PostList posts={posts} />
+      {/* </Suspense> */}
     </div>
   );
 }

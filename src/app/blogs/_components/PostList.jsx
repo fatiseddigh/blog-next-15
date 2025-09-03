@@ -3,15 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Author from "./Author";
 import PostInteraction from "./PostInteraction";
-import { cookies } from "next/headers";
-import setCookieOnReq from "@/utile/setCookieOnReq";
-import { getPosts } from "@/services/postServices";
 
-async function PostList() {
-  const cookieStore = cookies();
-  const options = setCookieOnReq(cookieStore);
-  const posts = await getPosts(options);
-
+async function PostList({ posts }) {
   return posts.length > 0 ? (
     <div className="grid grid-cols-12 gap-8 mb-16">
       {posts.map((post) => (
