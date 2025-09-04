@@ -24,7 +24,6 @@ async function SinglePost({ params }) {
   const { postSlug } = await params;
   const post = await getPostBySlug(postSlug);
   if (!post) notFound();
-
   return (
     <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
       <div className="max-w-5xl mx-auto">
