@@ -1,14 +1,20 @@
 import PostList from "@/pages/blogs/_components/PostList";
+import { getPosts } from "@/services/postServices";
+import setCookieOnReq from "@/utile/setCookieOnReq";
 import { FolderOpenIcon } from "@heroicons/react/24/outline";
+import { cookies } from "next/headers";
+import queryString from "query-string";
 
-async function Category({ params }) {
-  const { categorySlug } = params;
+async function Category({ params, searchParams }) {
+  const { categorySlug } = await params;
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/post/list?categorySlug=${categorySlug}`
-  );
-  const { data } = await res.json();
-  const { posts } = data || {};
+  const queries = `${queryString.stringify(
+    await searchParams
+  )}&categorySlug=${categorySlug}`;
+
+  const cookieStore = await cookies();
+  const options = setCookieOnReq(cookieStore);
+  const posts = await getPosts(queries, options);
 
   return (
     <div className="w-full">

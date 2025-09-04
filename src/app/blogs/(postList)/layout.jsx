@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import CategoryList from "../_components/CategoryList";
 import Spinner from "@/ui/Spinner";
+import Search from "@/ui/Search";
 
 function Layout({ children }) {
   return (
@@ -14,7 +15,7 @@ function Layout({ children }) {
               <h1 className="typing text-4xl sm:text-5xl font-bold leading-tight bg-gradient-to-r from-primary-600 via-primary-400 to-secondary-500 bg-clip-text text-transparent">
                 Discover Insights & Stories
               </h1>
-
+              <Search />
               <p className="text-lg text-gray-700 max-w-xl mx-auto lg:mx-0">
                 Explore our blog for expert tips, inspiring stories, and
                 practical guides designed to spark curiosity and knowledge.
