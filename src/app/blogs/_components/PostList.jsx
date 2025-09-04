@@ -16,24 +16,24 @@ async function PostList({ posts }) {
                  border border-secondary-100/50 shadow-md
                  hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
         >
-          <div className="relative aspect-video overflow-hidden rounded-2xl mb-4">
-            <Image
-              src={post.coverImageUrl}
-              alt={post.title}
-              fill
-              quality={80}
-              className="object-cover object-center 
+          <Link href={`/blogs/${post.slug}`}>
+            <div className="relative aspect-video overflow-hidden rounded-2xl mb-4">
+              <Image
+                src={post.coverImageUrl}
+                alt={post.title}
+                fill
+                quality={80}
+                className="object-cover object-center 
                      group-hover:scale-110 
                      transition-transform duration-500 ease-out"
-            />
-            {/* Gradient for imag*/}
-            <div
-              className="absolute inset-0 bg-gradient-to-t 
+              />
+              {/* Gradient for imag*/}
+              <div
+                className="absolute inset-0 bg-gradient-to-t 
                         from-primary-900/40 via-primary-700/10 to-transparent"
-            />
-          </div>
+              />
+            </div>
 
-          <Link href={`/blogs/${post.slug}`}>
             <h2
               className="mb-3 text-lg font-bold 
                        text-secondary-200 dark:text-secondary-900

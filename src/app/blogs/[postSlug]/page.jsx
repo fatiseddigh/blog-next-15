@@ -1,12 +1,23 @@
 import { getPostBySlug } from "@/services/postServices";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import RelatedPost from "../_components/RelatedPost";
+
+// export const dynamicParams = false;
+
+// export async function generateStaticParams() {
+//   const { posts } = await getPosts();
+//   const slugs = posts.map((post) => ({ slug: post.slug }));
+//   return slugs;
+// }
+
 export async function generateMetadata({ params }) {
   const post = await getPostBySlug(params.postSlug);
   return {
     title: `post ${post.title}`,
   };
 }
+
 async function SinglePost({ params }) {
   await new Promise((res) => setTimeout(() => res(), 500));
   // const post = await getPostBySlug(params.postSlug);
@@ -63,8 +74,9 @@ async function SinglePost({ params }) {
           </article>
 
           {/* Future Sections Placeholder */}
+
           <div className="mt-16 pt-10 border-t border-white/20 text-center text-sm text-secondary-400">
-            🚧 Comments & Related Posts will be added here
+            {post.related.length > 0 && <RelatedPost posts={post.related} />}
           </div>
         </div>
       </div>
