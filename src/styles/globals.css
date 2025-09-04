@@ -278,42 +278,50 @@ table td {
   color: var(--color-secondary-600);
 }
 
-/* comment indicator */
+/* comment indicator optimized for LTR */
 .post-comments .post-comments__answer {
   position: relative;
 }
+
+/* vertical line connecting answers */
 .post-comments .post-comments__answer::before {
   content: "";
   display: block;
   height: 100%;
   position: absolute;
-  right: -15px;
-  top: -13px;
+  left: -15px;
+  top: -10;
   width: 3px;
   background-color: var(--color-secondary-200);
 }
+
+/* small horizontal connector for each answer */
 .post-comments .post-comments__answer .answer-item::before {
   content: "";
   display: block;
   height: 3px;
-  position: relative;
-  right: -31px;
-  top: 57px;
   width: 15px;
+  position: absolute;
+  left: -15px; /* چپ چین */
+  top: 50%;
+  transform: translateY(-50%);
   background-color: var(--color-secondary-200);
   z-index: 10;
 }
-.post-comments .post-comments__answer .last-item:after {
+
+/* line extending for the last answer */
+/* .post-comments .post-comments__answer .last-item:after {
   content: "";
   display: block;
-  height: calc(100% - 80px);
+  height: calc(100% - 40px);
   position: absolute;
-  right: -15px;
-  top: 76px;
+  left: -15px; 
+  top: 40px;
   width: 4px;
   background-color: var(--color-secondary-200);
-}
+} */
 
+/* mobile adjustments */
 @media (max-width: 640px) {
   .post-comments .post-comments__answer::before {
     display: none;
@@ -321,8 +329,8 @@ table td {
   .post-comments .post-comments__answer .answer-item::before {
     width: 3px;
     height: 14px;
-    right: 11px;
-    top: -13px;
+    left: 5px;
+    top: 0;
     position: absolute;
   }
 }

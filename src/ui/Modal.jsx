@@ -18,9 +18,10 @@ function Modal({ open, onClose, title, children, description = "" }) {
         <div
           ref={ref}
           className="relative w-[calc(100vw-2rem)] md:max-w-lg max-h-[calc(100vh-2rem)] 
-                     overflow-y-auto rounded-2xl 
-                     bg-white/10 backdrop-blur-xl border border-white/20 
-                     shadow-2xl animate-fadeIn"
+             overflow-y-auto rounded-2xl 
+             bg-gradient-to-br from-primary-600/20 via-primary-400/20 to-secondary-500/20 
+             backdrop-blur-xl border border-white/20 
+             shadow-2xl animate-fadeIn"
         >
           {/* Header */}
           <div className="flex items-start justify-between p-6 border-b border-white/10">

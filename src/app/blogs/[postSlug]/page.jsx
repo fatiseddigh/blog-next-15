@@ -2,6 +2,7 @@ import { getPostBySlug } from "@/services/postServices";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import RelatedPost from "../_components/RelatedPost";
+import PostComment from "../_components/comment/PostComment";
 
 // export const dynamicParams = false;
 
@@ -74,8 +75,17 @@ async function SinglePost({ params }) {
 
           {/* Future Sections Placeholder */}
 
-          <div className="mt-16 pt-10 border-t border-white/20 text-center text-sm text-secondary-400">
+          {/* Related posts */}
+          <div className="mt-16 pt-10 border-t border-white/20">
             {post.related.length > 0 && <RelatedPost posts={post.related} />}
+          </div>
+
+          {/* Divider */}
+          <div className="my-9 border-t border-primary-900/30"></div>
+
+          {/* Comments */}
+          <div className="px-5 pt-8">
+            <PostComment post={post} />
           </div>
         </div>
       </div>
