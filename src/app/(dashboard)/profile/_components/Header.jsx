@@ -14,9 +14,12 @@ function Header() {
 
   return (
     <header
-      className={`bg-secondary-0 ${isLoading ? "bg-opacity-30 blur-md" : ""}`}
+      className={`sticky top-0 z-50
+                  bg-gradient-to-r from-primary-600/20 via-primary-400/20 to-secondary-500/20
+                  backdrop-blur-xl border-b border-white/20 shadow-lg max-w-full`}
     >
-      <div className="flex items-center justify-between py-5 px-4 lg:px-8">
+      <div className="flex items-center justify-between py-5 px-4 lg:px-8 ">
+        {/* Drawer toggle for mobile */}
         <ButtonIcon
           className="block lg:hidden border-none"
           variant="outline"
@@ -25,14 +28,17 @@ function Header() {
           {isOpenDrawer ? <XMarkIcon /> : <Bars3Icon />}
         </ButtonIcon>
 
-        <span className="text-sm lg:text-lg font-bold text-secondary-700">
-          HI {user?.name}
+        {/* Greeting */}
+        <span className="text-sm lg:text-lg font-bold text-primary-800">
+          Hi {user?.name}
         </span>
 
+        {/* Profile avatar */}
         <Link href="/profile">
           <Avatar src={user?.avatarUrl} />
         </Link>
 
+        {/* Mobile drawer */}
         <Drawer open={isOpenDrawer} onClose={() => setIsOpenDrawer(false)}>
           <SideBar onClose={() => setIsOpenDrawer(false)} />
         </Drawer>

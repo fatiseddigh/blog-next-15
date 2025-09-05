@@ -5,41 +5,39 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import SideBarNavs from "./SideBarNavs";
-import ButtonIcon from "@/ui/ButtonIcon";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 
 function SideBar({ onClose }) {
   return (
-    <div className="overflow-y-auto flex flex-col p-6  h-screen pt-10 lg:pt-8">
+    <div
+      className="flex flex-col h-screen p-6 pt-10 lg:pt-8
+                 bg-gradient-to-b from-primary-600/20 via-primary-400/20 to-secondary-500/20
+                 backdrop-blur-xl border-r border-white/20 shadow-2xl"
+    >
       {/* Sidebar header */}
-      <div className="flex items-center justify-between w-full mb-5 pb-2 border-b  border-b-secondary-200 ">
+      <div className="flex items-center justify-between w-full mb-6 pb-4 border-b border-white/20">
         <Link
           href="/"
-          className="flex items-center gap-x-4 justify-center text-secondary-700 lg:flex-1"
+          className="!inline-flex items-center gap-x-3 text-lg font-bold
+                     bg-gradient-to-r from-primary-600 via-primary-400 to-secondary-500 
+                     bg-clip-text text-transparent"
         >
-          <HomeIcon className="w-6 h-6" />
+          <HomeIcon className="w-6 h-6 text-white" />
           <span>BLOG</span>
         </Link>
-
-        <ButtonIcon
-          onClick={onClose}
-          className="block lg:hidden border-none"
-          variant="outline"
-        >
-          <XMarkIcon />
-        </ButtonIcon>
       </div>
 
       {/* Sidebar content */}
-      <div className="overflow-y-auto flex-auto">
+      <div className="flex-1 overflow-y-auto space-y-3">
         <SideBarNavs />
-        <div
-          // onClick={logoutHandler}
-          className="flex items-center gap-x-2 rounded-2xl font-medium transition-all duration-200 text-secondary-700 py-3 hover:text-red-400 cursor-pointer"
+
+        {/* Logout */}
+        <button
+          className="flex items-center gap-x-3 w-full px-3 py-3 rounded-xl font-medium
+                     text-red-400 hover:bg-red-500/10 hover:text-red-300 transition"
         >
-          <ArrowLeftStartOnRectangleIcon className="ml-4 h-5 w-5" />
+          <ArrowLeftStartOnRectangleIcon className="w-5 h-5" />
           <span>Logout</span>
-        </div>
+        </button>
       </div>
     </div>
   );

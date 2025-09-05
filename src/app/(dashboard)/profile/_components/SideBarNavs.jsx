@@ -53,7 +53,7 @@ export default function SideBarNavs() {
             <Link
               href={nav.href}
               className={classNames(
-                "flex items-center gap-x-2 rounded-2xl font-medium hover:text-primary-900 transition-all duration-200 text-secondary-700 py-3",
+                "!inline-flex items-center gap-x-2 rounded-2xl font-medium hover:text-primary-900 transition-all duration-200 text-secondary-700 py-3",
                 {
                   "bg-primary-100/40 !font-bold text-primary-900":
                     router.pathname === nav.href,

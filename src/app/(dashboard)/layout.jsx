@@ -8,17 +8,29 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <div className="bg-secondary-0">
-      <div className="grid grid-cols-12 grid-rows-[auto_1fr] h-screen">
-        <aside className="hidden lg:block col-span-3 xl:col-span-2 row-span-2">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-primary-600/10 via-primary-400/10 to-secondary-500/10">
+      {/* Outer grid: sidebar + content column */}
+      <div className="mx-auto max-w-[1600px] lg:grid lg:grid-cols-[260px_1fr]">
+        {/* Sidebar (sticky, scrollable if long) */}
+        <aside
+          className="hidden lg:block lg:sticky lg:top-0 lg:h-[100dvh] overflow-y-auto
+                          border-r border-white/10 bg-white/10 backdrop-blur-xl"
+        >
           <SideBar />
         </aside>
-        <div className="grid-cols-12 lg:col-span-9 xl:col-span-10 row-span-1">
-          <Header />
+
+        {/* Content column: header + main (auto / 1fr) */}
+        <div className="min-h-[100dvh] grid grid-rows-[auto_1fr]">
+          {/* Header (sticky, glass) */}
+          <header className="sticky top-0 z-40 border-b border-white/10 bg-white/10 backdrop-blur-xl ">
+            <Header />
+          </header>
+
+          {/* Main (only this scrolls) */}
+          <main className="bg-white/5 rounded-tl-3xl p-4 md:p-6 overflow-y-auto">
+            <div className="max-w-screen-xl mx-auto">{children}</div>
+          </main>
         </div>
-        <main className="grid-cols-12 lg:col-span-9 xl:col-span-10 bg-secondary-100 rounded-tr-3xl p-4 md:p-6 overflow-y-auto">
-          <div className="xl:max-w-screen-xl ">{children}</div>
-        </main>
       </div>
     </div>
   );
