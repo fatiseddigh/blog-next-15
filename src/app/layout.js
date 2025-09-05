@@ -23,7 +23,6 @@ export default function RootLayout({ children }) {
       <body className="min-h-screen">
         <AuthProvider>
           <Toaster />
-          <Header />
           <div className="container">{children}</div>
         </AuthProvider>
       </body>
