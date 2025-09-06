@@ -3,9 +3,9 @@ import Table from "@/ui/Table";
 import PostRow from "./PostRow";
 import { getPosts } from "@/services/postServices";
 
-async function PostsTable() {
-  const posts = await getPosts();
-  console.log(posts, "ppppp");
+async function PostsTable({ query = "" }) {
+  const posts = await getPosts(query);
+
   if (!posts.length) return <Empty resourceName="post" />;
 
   return (
