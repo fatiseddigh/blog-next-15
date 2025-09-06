@@ -1,5 +1,6 @@
 import Table from "@/ui/Table";
 import truncateText from "@/utile/truncateText";
+import { DeletePost, UpdatePost } from "./Buttons";
 
 // free, premium =>
 
@@ -27,6 +28,12 @@ function PostRow({ index, post }) {
         <span className={`badge ${typeStyle[type].className}`}>
           {typeStyle[type].label}
         </span>
+      </td>
+      <td>
+        <div className="flex items-center gap-x-3">
+          <UpdatePost id={post._id} />
+          <DeletePost post={post} />
+        </div>
       </td>
     </Table.Row>
   );
