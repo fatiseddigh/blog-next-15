@@ -16,8 +16,6 @@ export async function getPosts(queries, options) {
   );
   const { data } = await res.json();
   const { posts } = data || {};
-  console.log(posts.length, "poo");
-
   return posts;
 }
 
