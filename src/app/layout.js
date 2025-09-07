@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import AuthProvider from "@/context/AuthContext";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
+import ReactQueryProvider from "provider/ReactQueryProvider";
 import { Toaster } from "react-hot-toast";
 
 const inter = Inter({
@@ -21,10 +22,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <body className="min-h-screen">
-        <AuthProvider>
-          <Toaster />
-          <div>{children}</div>
-        </AuthProvider>
+        <Toaster />
+        <ReactQueryProvider>
+          <AuthProvider>
+            <div>{children}</div>
+          </AuthProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );
