@@ -14,6 +14,7 @@ import ButtonIcon from "@/ui/ButtonIcon";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import SpinnerMini from "@/ui/SpinnerMini";
 import Image from "next/image";
+import { imageUrlToFile } from "@/utile/fileFormatter";
 
 const schema = yup
   .object({
