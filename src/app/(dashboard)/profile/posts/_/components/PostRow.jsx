@@ -30,7 +30,7 @@ function PostRow({ index, post }) {
         </span>
       </td>
       <td>
-        <div className="flex items-center gap-x-3">
+        <div className="flex items-center gap-x-3 justify-end">
           <UpdatePost id={post._id} />
           <DeletePost post={post} />
         </div>
