@@ -26,3 +26,11 @@ export async function likePostApi(postId) {
 export async function bookmarkPostApi(postId) {
   return http.post(`/post/bookmark/${postId}`).then(({ data }) => data.data);
 }
+
+export async function createPostApi(data) {
+  return http.post(`/post/create`, data).then(({ data }) => data.data);
+}
+
+export async function editPostApi({ id, data }) {
+  return http.patch(`/post/update/${id}`, data).then(({ data }) => data.data);
+}
